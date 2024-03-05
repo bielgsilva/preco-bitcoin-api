@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 const health = require("../routes/health");
-const userRoutes = require("../routes");
+const userRoutes = require("../routes/index");
 
 const app = express();
 
