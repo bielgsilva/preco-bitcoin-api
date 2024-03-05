@@ -3,7 +3,7 @@ const knex = require('../../database')
 const transportador = require('../mailSender/email')
 const compilador = require('../../utils/compilador')
 
-const { creatUser, editUserLogged, emailVerify } = require("../../services/usersServices/index");
+const { creatUser,  emailVerify } = require("../../services/usersServices/index");
 
 const newUser = async (request, response) => {
   const { email } = request.body;
