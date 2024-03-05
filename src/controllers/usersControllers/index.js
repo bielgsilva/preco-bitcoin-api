@@ -3,8 +3,38 @@ const knex = require('../../database')
 const transportador = require('../mailSender/email')
 const compilador = require('../../utils/compilador')
 
-const { creatUserService, editUserLogged, emailVerify } = require("../../servicesSQL/usersServices/index");
-const login = require("../../servicesSQL/loginServices/index");
+const { creatUser, editUserLogged, emailVerify } = require("../../services/usersServices/index");
+
+const newUser = async (request, response) => {
+  const { email } = request.body;
+
+  const html = await compilador('./src/controllers/usersControllers/templatesEmail/login.html');
+
+  await transportador.sendMail({
+    from: `${process.env.EMAIL_NAME} <${process.env.EMAIL_FROM}>`,
+    to: `<${email}>`,
+    cc: 'ggsilva.eng@gmail.com',
+    subject: "Este e um email de Verificacao de Cadastro",
+    html
+  }).then(() => {
+    console.log('Email enviado');
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  try {
+    const user = await creatUser(email);
+
+    return response.status(201).json(user);
+
+  } catch (error) {
+    return response
+      .status(500)
+      .json({ message: "Error", error: error.message });
+  }
+};
+
+
 
 
 const checkEmail = async (request, response) => {
@@ -21,36 +51,7 @@ const checkEmail = async (request, response) => {
   }
 };
 
-const createUser = async (request, response) => {
-  const { name, email, password } = request.body;
 
-  const html = await compilador('./src/controllers/usersControllers/templatesEmail/login.html', {
-    nomeusuario: name
-  });
-
-  await transportador.sendMail({
-    from: `${process.env.EMAIL_NAME} <${process.env.EMAIL_FROM}>`,
-    to: `${name} <${email}>`,
-    cc: 'ggsilva.eng@gmail.com',
-    subject: "Este e um email de Verificacao de Cadastro",
-    html
-  }).then(() => {
-    console.log('Email enviado');
-  }).catch((error) => {
-    console.error(error);
-  });
-
-  try {
-    const user = await creatUserService(name, email, password);
-
-    return response.status(201).json(user);
-
-  } catch (error) {
-    return response
-      .status(500)
-      .json({ message: "Error", error: error.message });
-  }
-};
 
 const loginUser = async (request, response) => {
   const { email, password } = request.body;
@@ -86,28 +87,6 @@ const selectAllUser = async (request, response) => {
   }
 };
 
-const updateUsers = async (request, response) => {
-  const { id } = request.params;
-
-  const { name, email, cpf } = request.body;
-
-  try {
-    const userData = {
-      name,
-      email,
-      cpf
-    };
-
-    const user = await editUserLogged(userData, id);
-
-    return response.status(201).json({ user });
-
-  } catch (error) {
-    return response
-      .status(500)
-      .json({ message: "Error", error: error.message, name: error.name });
-  }
-};
 
 const getUser = async (request, response) => {
   const { email } = request.query;
@@ -127,7 +106,7 @@ const getUser = async (request, response) => {
 
 module.exports = {
   checkEmail,
-  createUser,
+  newUser,
   getUser,
   loginUser,
   selectAllUser,
