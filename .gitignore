@@ -1,0 +1,9 @@
+node_modules
+sendgrid.env
+.env
+roteiro.txt
+.vercel
+vercel.json
+
+# Local Netlify folder
+.netlify
