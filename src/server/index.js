@@ -17,5 +17,3 @@ app.use(health);
 app.use(userRoutes);
 
 app.listen(process.env.PORT || 3000);
-
-
