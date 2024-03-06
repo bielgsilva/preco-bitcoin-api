@@ -2,7 +2,7 @@ const knex = require("./index");
 
 const addUser = async (email) => {
   try {
-    const user = await knex("users").insert({ email }).returning("*");
+    const user = await knex("usuarios").insert({ email }).returning("*");
 
     return user[0];
   } catch (error) {

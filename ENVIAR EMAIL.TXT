@@ -1,0 +1,6 @@
+Configurar Google IMAP em Configurarações
+Gerar senha de Apps em fator de 2 etapas
+host=smtp.gmail.com
+port=587
+user= email
+senha = senha de Apps

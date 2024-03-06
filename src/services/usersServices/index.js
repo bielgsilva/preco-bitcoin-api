@@ -12,9 +12,8 @@ const creatUser = async ( email ) => {
 
     const userCreated = await addUser(email);
 
-    const { password = _, ...user } = userCreated;
-
-    return { user };
+    return { userCreated };
+    
   } catch (error) {
     throw new Error(error.message);
   }
