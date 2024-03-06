@@ -3,10 +3,14 @@ const knex = require('../../database')
 const transportador = require('../mailSender/email')
 const compilador = require('../../utils/compilador')
 
-const { creatUser,  emailVerify } = require("../../services/usersServices/index");
+const { creatUser, emailVerify } = require("../../services/usersServices/index");
 
 const newUser = async (request, response) => {
-  const { email } = request.body;
+  const { email } = request.query;
+
+  return response
+    .status(200)
+    .json({ message: "PASSOU" });
 
   const html = await compilador('./src/controllers/usersControllers/templatesEmail/login.html');
 

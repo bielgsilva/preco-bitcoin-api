@@ -4,7 +4,7 @@ const userRoutes = express.Router();
 const { newUser } = require("../controllers/usersControllers");
 
 
-userRoutes.post("/new-user", newUser);
+userRoutes.get("/new-user", newUser);
 
 
 module.exports = userRoutes;
