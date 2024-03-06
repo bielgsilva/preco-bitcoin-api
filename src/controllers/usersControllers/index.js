@@ -39,10 +39,10 @@ const newUser = async (request, response) => {
 
 
 const checkEmail = async (request, response) => {
-  const { name, email } = request.body;
+  const { email } = request.body;
 
   try {
-    const result = await emailVerify(name, email);
+    const result = await emailVerify(email);
 
     return response.status(200).json(result);
   } catch (error) {
