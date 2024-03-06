@@ -7,12 +7,8 @@ const { creatUser, emailVerify } = require("../../services/usersServices/index")
 
 const newUser = async (request, response) => {
   const { email } = request.query;
-
-  return response
-    .status(200)
-    .json({ message: "PASSOU" });
-
-  const html = await compilador('./src/controllers/usersControllers/templatesEmail/login.html');
+  
+  const html = await compilador('./src/controllers/mailSender/templatesEmail/login.html');
 
   await transportador.sendMail({
     from: `${process.env.EMAIL_NAME} <${process.env.EMAIL_FROM}>`,
@@ -20,6 +16,7 @@ const newUser = async (request, response) => {
     cc: 'ggsilva.eng@gmail.com',
     subject: "Este e um email de Verificacao de Cadastro",
     html
+    
   }).then(() => {
     console.log('Email enviado');
   }).catch((error) => {
