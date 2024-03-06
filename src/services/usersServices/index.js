@@ -4,7 +4,7 @@ const { addUser } = require('../../database/usersRepository')
 
 const creatUser = async ( email ) => {
   try {
-    const emailExist = await knex("users").where("email", email);
+    const emailExist = await knex("usuarios").where("email", email);
 
     if (emailExist.length > 0) {
       throw new Error("Email already registered");
