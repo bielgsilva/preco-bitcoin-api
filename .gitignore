@@ -7,3 +7,5 @@ vercel.json
 
 # Local Netlify folder
 .netlify
+
+ENVIAREMAIL.TXT
