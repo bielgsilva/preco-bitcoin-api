@@ -23,7 +23,7 @@ const emailVerify = async (email) => {
   if (!email) {
     throw new Error("Email required");
   }
-  const userExist = await knex("users").where("email", email);
+  const userExist = await knex("usuarios").where("email", email);
 
   if (userExist.length > 0) {
     return { canRegister: false, error: "User already registered" };

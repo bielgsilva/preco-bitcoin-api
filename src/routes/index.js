@@ -5,7 +5,8 @@ const { newUser, checkEmail } = require("../controllers/usersControllers");
 
 
 userRoutes.get("/new-user", newUser);
-userRoutes.get("/check-email", checkEmail);
+
+userRoutes.post("/check-email", checkEmail);
 
 
 module.exports = userRoutes;

@@ -7,7 +7,7 @@ const { creatUser, emailVerify } = require("../../services/usersServices/index")
 
 const newUser = async (request, response) => {
   const { email } = request.query;
-  
+
   const html = await compilador('./src/controllers/mailSender/templatesEmail/login.html');
 
   await transportador.sendMail({
@@ -16,7 +16,7 @@ const newUser = async (request, response) => {
     cc: 'ggsilva.eng@gmail.com',
     subject: "Este e um email de Verificacao de Cadastro",
     html
-    
+
   }).then(() => {
     console.log('Email enviado');
   }).catch((error) => {
@@ -45,35 +45,14 @@ const checkEmail = async (request, response) => {
     const result = await emailVerify(email);
 
     return response.status(200).json(result);
-  } catch (error) {
-    return response
-      .status(500)
-      .json({ message: "Error", error: error.message });
-  }
-};
-
-
-
-const loginUser = async (request, response) => {
-  const { email, password } = request.body;
-
-  if (!email || !password) {
-    return response
-      .status(400)
-      .json({ message: "Email and password required" });
-  }
-
-  try {
-    const token = await login(email, password);
-
-    return response.status(200).json(token);
 
   } catch (error) {
     return response
       .status(500)
-      .json({ message: "Error", error: error.message });
+      .json({ message: "Não foi possível verificar email", error: error.message });
   }
 };
+
 
 const selectAllUser = async (request, response) => {
   try {
@@ -93,7 +72,6 @@ const getUser = async (request, response) => {
   const { email } = request.query;
 
   try {
-
     const user = await knex('users').where("email", email).first().debug()
 
     response.json(user);
@@ -109,6 +87,5 @@ module.exports = {
   checkEmail,
   newUser,
   getUser,
-  loginUser,
   selectAllUser
 };
