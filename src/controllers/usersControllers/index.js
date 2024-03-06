@@ -109,6 +109,5 @@ module.exports = {
   newUser,
   getUser,
   loginUser,
-  selectAllUser,
-  updateUsers,
+  selectAllUser
 };
