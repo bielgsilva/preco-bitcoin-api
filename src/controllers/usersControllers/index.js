@@ -1,12 +1,48 @@
-const knex = require('../../database')
+const axios = require('axios');
+const compilador = require('../../utils/compilador');
 const cron = require('cron');
-const transportador = require('../mailSender/email')
-const compilador = require('../../utils/compilador')
+const knex = require('../../database');
+const transportador = require('../mailSender/email');
 
 const { creatUser, emailVerify } = require("../../services/usersServices/index");
 
-const dailyAtt = new cron.CronJob('00 23 * * *', async () => {
+const dailyAtt = new cron.CronJob('54 11 * * *', async () => {
+
+  const bitcoinprice = async () => {
+
+    try {
+      const response = await axios.get('/json/last/BTC-USD', {
+        baseURL: 'https://economia.awesomeapi.com.br',
+        timeout: 10000,
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      const price = response.data.BTCUSD.bid;
+      const date = response.data.BTCUSD.create_date;
+
+      const btc = { price, date };
+
+      return btc;
+
+
+
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+
+
   try {
+    const btcData = await bitcoinprice();
+
+
+    const html = await compilador('./src/controllers/mailSender/templatesEmail/daily.html', {
+      precobtc: btcData.price,
+      data: btcData.date
+    });
+
+
     const usuarios = await knex.select('email').from('usuarios');
 
     usuarios.forEach(async (usuario) => {
@@ -15,7 +51,7 @@ const dailyAtt = new cron.CronJob('00 23 * * *', async () => {
           from: `<${process.env.EMAIL_FROM}>`,
           to: usuario.email,
           subject: "🚀 Atualização Diária ₿itcoin 🚀",
-          text: "Isso é um teste p/ todos os usuarios"
+          html
         });
         console.log(`E-mail enviado para ${usuario.email}`);
       } catch (error) {
@@ -29,6 +65,7 @@ const dailyAtt = new cron.CronJob('00 23 * * *', async () => {
 }, null, true, 'America/Sao_Paulo');
 
 dailyAtt.start();
+
 
 
 const newUser = async (request, response) => {
