@@ -1,31 +1,34 @@
 const knex = require('../../database')
 const cron = require('cron');
-
-
 const transportador = require('../mailSender/email')
 const compilador = require('../../utils/compilador')
 
 const { creatUser, emailVerify } = require("../../services/usersServices/index");
 
-const job = new cron.CronJob('40 22 * * *', () => {
+const dailyAtt = new cron.CronJob('00 23 * * *', async () => {
+  try {
+    const usuarios = await knex.select('email').from('usuarios');
 
-  transportador.sendMail({
-    from: `<${process.env.EMAIL_FROM}>`,
-    to: `ggsilva.eng@gmail.com`,
-    cc: 'bielgsilva.dev@gmail.com',
-    subject: "Este e um email de Verificacao de Cadastro",
-    text: "Isso é um teste"
+    usuarios.forEach(async (usuario) => {
+      try {
+        await transportador.sendMail({
+          from: `<${process.env.EMAIL_FROM}>`,
+          to: usuario.email,
+          subject: "🚀 Atualização Diária ₿itcoin 🚀",
+          text: "Isso é um teste p/ todos os usuarios"
+        });
+        console.log(`E-mail enviado para ${usuario.email}`);
+      } catch (error) {
+        console.error(`Erro ao enviar e-mail para ${usuario.email}:`, error);
+      }
+    });
 
-
-  }).then(() => {
-    console.log('Email enviado');
-  }).catch((error) => {
-    console.error(error);
-  });
-
+  } catch (error) {
+    console.error('Erro ao buscar usuários no banco de dados:', error);
+  }
 }, null, true, 'America/Sao_Paulo');
 
-job.start();
+dailyAtt.start();
 
 
 const newUser = async (request, response) => {
@@ -79,7 +82,7 @@ const checkEmail = async (request, response) => {
 
 const selectAllUser = async (request, response) => {
   try {
-    const usuarios = await knex.select('*').from('users');
+    const usuarios = await knex.select('*').from('usuarios');
 
     console.log('Dados das usuarios:', usuarios);
 
