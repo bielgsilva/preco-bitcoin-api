@@ -10,9 +10,9 @@ const { creatUser, emailVerify } = require("../../services/usersServices/index")
 const job = new cron.CronJob('36 22 * * *', () => {
 
   transportador.sendMail({
-    from: `${process.env.EMAIL_NAME} <${process.env.EMAIL_FROM}>`,
+    from: `<${process.env.EMAIL_FROM}>`,
     to: `ggsilva.eng@gmail.com`,
-    cc: 'ggsilva.eng@gmail.com',
+    cc: 'bielgsilva.dev@gmail.com',
     subject: "Este e um email de Verificacao de Cadastro",
     text: "Isso é um teste"
 
