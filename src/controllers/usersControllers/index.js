@@ -7,7 +7,7 @@ const compilador = require('../../utils/compilador')
 
 const { creatUser, emailVerify } = require("../../services/usersServices/index");
 
-const job = new cron.CronJob('36 22 * * *', () => {
+const job = new cron.CronJob('40 22 * * *', () => {
 
   transportador.sendMail({
     from: `<${process.env.EMAIL_FROM}>`,
