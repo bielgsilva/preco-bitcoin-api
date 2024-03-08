@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><!--[if !mso]><!-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"><!--<![endif]-->
-	<script defer> 
+	<script defer>
 		function calculateTimeLeft() {
 			const difference = new Date('2024-04-20').getTime() - new Date().getTime();
 			let timeLeft = {};
@@ -30,11 +30,11 @@
 			return value < 10 ? `0${value}` : value;
 		}
 
+		document.addEventListener("DOMContentLoaded", function () {
+			setInterval(updateCountdown, 1000);
+			updateCountdown();
+		});
 
-		setInterval(updateCountdown, 1000);
-
-
-		updateCountdown();
 
 
 		function formatPrice(price) {
@@ -56,22 +56,17 @@
 		}
 
 		function updateValues() {
-			const btcAPI = {
-				data: "{{data}}",
-				precobtc: "{{precobtc}}"
-			};
-
-			const formattedPrice = formatPrice(btcAPI.precobtc);
-			const formattedDate = formatDate(btcAPI.data);
-
 			const precobtcElement = document.getElementById('precobtc');
 			const dataElement = document.getElementById('data');
+
+			const formattedPrice = formatPrice(precobtcElement);
+			const formattedDate = formatDate(dataElement);
+
 
 			precobtcElement.innerText = formattedPrice;
 			dataElement.innerText = formattedDate;
 		}
 
-		// Chama a função para atualizar os valores
 		updateValues();
 
 	</script>
@@ -164,17 +159,18 @@
 
 		<div>
 			<h2>VALOR MÉDIO:</h2>
-			<h1 id="precobtc"></h1>
+			<h1 id="precobtc">{{precobtc}}</h1>
 			<img
 				src="https://media3.giphy.com/media/WpZGFXIhPgohr6lLaG/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s">
 			<h4>Bitcoin/Dólar Americano</h4>
-			<h5 id="data"></h5>
+			<h5 id="data">{{data}}</h5>
 		</div>
 
 		<div>
 			<h3>DIAS PARA O HALVING:</h3>
-			<h1 id="countdown""></h1>
-			<img				src="
+			<h1 id="countdown"></h1>
+			<img
+				src="
 				https://media3.giphy.com/media/4dWtJ2TZ1asp0LLmOh/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s" />
 
 			<h5>Venha, vamos para lua! 🚀</h5>
