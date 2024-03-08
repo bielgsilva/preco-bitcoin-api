@@ -33,7 +33,6 @@ const dailyAtt = new cron.CronJob('00 12 * * *', async () => {
     }
   };
 
-
   try {
     const btcData = await bitcoinprice();
 
