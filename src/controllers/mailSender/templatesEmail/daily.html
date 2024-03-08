@@ -2,184 +2,174 @@
 <html lang="pt-br">
 
 <head>
-	<title></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><!--[if !mso]><!-->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"><!--<![endif]-->
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&display=swap');
-		@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
+    <!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"><!--<![endif]-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 500;
-			font-style: normal;
-		}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
 
-		body {
-			margin: 0;
-			padding: 0;
-			background-color: #f8c78a;
-			color: white;
-			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-		}
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8c78a;
+            color: white;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        }
 
-		div {
-			margin-bottom: 100px;
-		}
+        div {
+            margin-bottom: 100px;
+        }
 
-		h1 {
-			font-size: min(6vw, 80px);
-			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-			font-family: "Bebas Neue", sans-serif;
-		}
+        h1 {
+            font-size: min(6vw, 80px);
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            font-family: "Bebas Neue", sans-serif;
+        }
 
-		h2 {
-			font-size: min(5vw, 40px)
-		}
+        h2 {
+            font-size: min(5vw, 40px)
+        }
 
-		h3 {
-			font-size: min(4vw, 30px)
-		}
+        h3 {
+            font-size: min(4vw, 30px)
+        }
 
-		h4 {
-			font-size: min(3vw, 30px)
-		}
+        h4 {
+            font-size: min(3vw, 30px)
+        }
 
-		span {
-			font-size: min(10vw, 20px)
-		}
+        span {
+            font-size: min(10vw, 20px)
+        }
 
-		img {
-			width: min(40vw, 200px);
-		}
+        img {
+            width: min(40vw, 200px);
+        }
 
-		.container {
-			height: 100%;
-			width: 100%;
-			gap: 100px;
-			padding: 5vh 0vw;
+        .container {
+            height: 100%;
+            width: 100%;
+            gap: 100px;
+            padding: 5vh 0vw;
+            background-color: #de8419;
+            text-align: center;
+            white-space: nowrap;
+        }
 
-			background-color: #de8419;
-			text-align: center;
-			white-space: nowrap;
-		}
+        .attDiaria {
+            gap: 0;
+            line-height: 1;
+        }
 
-		.attDiaria {
-			gap: 0;
-			line-height: 1;
-		}
-
-		.valorBtc {
-			gap: 10px;
-		}
-	</style>
+        .valorBtc {
+            gap: 10px;
+        }
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<div>
-			<img
-				src="https://b85f492946.imgdist.com/pub/bfra/v53z2ta0/tzn/6xj/skx/o7GD9_nzQGe-aPv5C8S7pA-removebg-preview.png" />
+    <div class="container">
+        <div>
+            <img src="https://b85f492946.imgdist.com/pub/bfra/v53z2ta0/tzn/6xj/skx/o7GD9_nzQGe-aPv5C8S7pA-removebg-preview.png" />
+            <h4>Bom dia, seus ratos!</h4>
+        </div>
 
-			<h4>Bom dia, seus ratos!</h4>
-		</div>
+        <div>
+            <h1>ATUALIZAÇÃO DIÁRIA</h1>
+            <h1>₿ITCOIN</h1>
+        </div>
 
-		<div>
-			<h1>ATUALIZAÇÃO DIÁRIA</h1>
-			<h1>₿ITCOIN</h1>
-		</div>
+        <div>
+            <h2>VALOR MÉDIO:</h2>
+            <h1 class="valorBtc" id="precobtc">{{precobtc}}</h1>
+            <img src="https://media3.giphy.com/media/WpZGFXIhPgohr6lLaG/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s">
+            <h4>Bitcoin/Dólar Americano</h4>
+            <h5 class="data" id="data">{{data}}</h5>
+        </div>
 
-		<div>
-			<h2>VALOR MÉDIO:</h2>
-			<h1 id="precobtc">{{precobtc}}</h1>
-			<img
-				src="https://media3.giphy.com/media/WpZGFXIhPgohr6lLaG/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s">
-			<h4>Bitcoin/Dólar Americano</h4>
-			<h5 id="data">{{data}}</h5>
-		</div>
+        <div>
+            <h3>DIAS PARA O HALVING:</h3>
+            <h1 id="countdown"></h1>
+            <img src="https://media3.giphy.com/media/4dWtJ2TZ1asp0LLmOh/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s" />
+            <h5>Venha, vamos para lua! 🚀</h5>
+        </div>
+    </div>
 
-		<div>
-			<h3>DIAS PARA O HALVING:</h3>
-			<h1 id="countdown""></h1>
-			<img				src="
-				https://media3.giphy.com/media/4dWtJ2TZ1asp0LLmOh/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s" />
+    <script>
+        function calculateTimeLeft() {
+            const difference = new Date('2024-04-20').getTime() - new Date().getTime();
+            let timeLeft = {};
 
-			<h5>Venha, vamos para lua! 🚀</h5>
-		</div>
+            if (difference > 0) {
+                timeLeft = {
+                    days: Math.floor(difference / (1000 * 60 * 60 * 24))
+                };
+            }
 
-	</div>
+            return timeLeft;
+        }
 
-	<script>
-		function calculateTimeLeft() {
-			const difference = new Date('2024-04-20').getTime() - new Date().getTime();
-			let timeLeft = {};
+        function updateCountdown() {
+            const timeLeft = calculateTimeLeft();
+            document.getElementById('countdown').innerText = addLeadingZero(timeLeft.days) + ' dias';
+        }
 
-			if (difference > 0) {
-				timeLeft = {
-					days: Math.floor(difference / (1000 * 60 * 60 * 24))
-				};
-			}
+        function addLeadingZero(value) {
+            return value < 10 ? `0${value}` : value;
+        }
 
-			return timeLeft;
-		}
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
-		function updateCountdown() {
-			const timeLeft = calculateTimeLeft();
-			document.getElementById('countdown').innerText = addLeadingZero(timeLeft.days) + ' dias';
-		}
+        function formatPrice(price) {
+            return parseFloat(price).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            });
+        }
 
-		function addLeadingZero(value) {
-			return value < 10 ? `0${value}` : value;
-		}
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
 
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} - ${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
+        }
 
-		setInterval(updateCountdown, 1000);
+        function updateValues() {
+            const precobtcElement = document.getElementById('precobtc');
+            const dataElement = document.getElementById('data');
 
+            const precobtcValue = precobtcElement.textContent;
+            const dataValue = dataElement.textContent;
 
-		updateCountdown();
+            const formattedPrice = formatPrice(precobtcValue);
+            const formattedDate = formatDate(dataValue);
 
+            precobtcElement.textContent = formattedPrice;
+            dataElement.textContent = formattedDate;
+        }
 
-		function formatPrice(price) {
-			return parseFloat(price).toLocaleString('en-US', {
-				style: 'currency',
-				currency: 'USD',
-			});
-		}
+        // Chama a função para atualizar os valores
+        updateValues();
 
-		function formatDate(dateString) {
-			const date = new Date(dateString);
-			const hours = date.getHours();
-			const minutes = date.getMinutes();
-			const day = date.getDate();
-			const month = date.getMonth() + 1;
-			const year = date.getFullYear();
-
-			return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} - ${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
-		}
-
-		function updateValues() {
-			const precobtcElement = document.getElementById('precobtc');
-			const dataElement = document.getElementById('data');
-
-			const precobtcValue = precobtcElement.textContent;
-			const dataValue = dataElement.textContent;
-
-			const formattedPrice = formatPrice(precobtcValue);
-			const formattedDate = formatDate(dataValue);
-
-			precobtcElement.textContent = formattedPrice;
-			dataElement.textContent = formattedDate;
-		}
-
-		// Chama a função para atualizar os valores
-		updateValues();
-
-	</script>
+    </script>
 </body>
 
 </html>
