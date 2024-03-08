@@ -175,9 +175,23 @@
 			return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} - ${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
 		}
 
+		function updateValues() {
+			const precobtcElement = document.getElementById('precobtc');
+			const dataElement = document.getElementById('data');
 
-		document.getElementById('precobtc') = formatPrice(price);
-		document.getElementById('data') = formatDate(date);
+			const precobtcValue = precobtcElement.textContent;
+			const dataValue = dataElement.textContent;
+
+			const formattedPrice = formatPrice(precobtcValue);
+			const formattedDate = formatDate(dataValue);
+
+			precobtcElement.textContent = formattedPrice;
+			dataElement.textContent = formattedDate;
+		}
+
+		// Chama a função para atualizar os valores
+		updateValues();
+
 	</script>
 </body>
 
