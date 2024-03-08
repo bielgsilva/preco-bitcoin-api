@@ -28,6 +28,10 @@
 			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 		}
 
+		div {
+			margin-bottom: 100px;
+		}
+
 		h1 {
 			font-size: min(6vw, 80px);
 			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
@@ -73,36 +77,24 @@
 		.valorBtc {
 			gap: 10px;
 		}
-
-		.flex-center {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-		.flex-center-column {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
 	</style>
 </head>
 
 <body>
-	<div class="container flex-center-column">
-		<div class="flex-center-column">
+	<div class="container">
+		<div>
 			<img
-				src="https://b85f492946.imgdist.com/pub/bfra/v53z2ta0/tzn/6xj/skx/o7GD9_nzQGe-aPv5C8S7pA-removebg-preview.png">
-			<strong>Bom dia, seus ratos!</strong>
+				src="https://b85f492946.imgdist.com/pub/bfra/v53z2ta0/tzn/6xj/skx/o7GD9_nzQGe-aPv5C8S7pA-removebg-preview.png" />
+
+			<h43>Bom dia, seus ratos!</h43>
 		</div>
 
-		<div class="attDiaria flex-center-column">
+		<div>
 			<h1>ATUALIZAÇÃO DIÁRIA</h1>
 			<h1>₿ITCOIN</h1>
 		</div>
 
-		<div class="valorBtc flex-center-column">
+		<div>
 			<h2>VALOR MÉDIO:</h2>
 			<h1 id="precobtc">{{precobtc}}</h1>
 			<img
@@ -112,14 +104,12 @@
 		</div>
 
 		<div>
-			<h2>
-				DIAS PARA O HALVING:
-
-			</h2>
+			<h3>DIAS PARA O HALVING:</h3>
 			<h1 id="countdown""></h1>
-			<img
-				src=" https://media3.giphy.com/media/4dWtJ2TZ1asp0LLmOh/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s">
-				<h5>Venha, vamos para lua! 🚀</h5>
+			<img				src="
+				https://media3.giphy.com/media/4dWtJ2TZ1asp0LLmOh/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s" />
+
+			<h5>Venha, vamos para lua! 🚀</h5>
 		</div>
 
 	</div>
