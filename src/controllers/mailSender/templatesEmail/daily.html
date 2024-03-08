@@ -17,6 +17,24 @@
 			padding: 0;
 		}
 
+
+		img {
+			max-width: 100%;
+		}
+
+		#rato {
+			width: 20%;
+		}
+
+		.alignment {
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+
+
 		a[x-apple-data-detectors] {
 			color: inherit !important;
 			text-decoration: inherit !important;
@@ -44,6 +62,15 @@
 		}
 
 		@media (max-width:670px) {
+			* {
+				text-align: center;
+			}
+
+			img {
+				max-width: 40%;
+			}
+
+
 			.desktop_hide table.icons-inner {
 				display: inline-block !important;
 			}
@@ -105,6 +132,59 @@
 				border-left: 0;
 			}
 		}
+
+		.box {
+			height: auto;
+			width: 100%;
+			padding: 20px;
+			border-radius: 10px;
+			gap: 10px;
+			white-space: nowrap;
+			text-align: center;
+			z-index: 3;
+
+			font-size: min(8vw, 24px)
+		}
+
+		.box-counters {
+			width: 100%;
+			gap: 30px;
+			padding: 0px;
+		}
+
+		.box-counters-counter {
+			width: 20%;
+			padding: 10px;
+			border-radius: 10px;
+
+		}
+
+		@media (max-width: 768px) {
+			.box-counters {
+				width: 100%;
+				gap: 15px;
+				padding: 0px;
+			}
+
+			.box-counters-counter {
+				height: auto;
+				padding: 15px;
+				border-radius: 10px;
+			}
+		}
+
+		.flex-center {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.flex-center-column {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
 	</style>
 </head>
 
@@ -139,8 +219,7 @@
 							</tr>
 						</tbody>
 					</table>
-					
-					
+
 					<!-- RATO ATÉ BOM DIA -->
 					<table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0"
 						role="presentation"
@@ -164,11 +243,12 @@
 																style="width:100%;padding-right:0px;padding-left:0px;">
 																<div class="alignment" align="center"
 																	style="line-height:10px">
-																	<div style="max-width: 130px;"><img
-																			src="https://b85f492946.imgdist.com/pub/bfra/v53z2ta0/tzn/6xj/skx/o7GD9_nzQGe-aPv5C8S7pA-removebg-preview.png"
-																			style="display: block; height: auto; border: 0; width: 100%;"
-																			width="130"></div>
+																	<img id="rato"
+																		src="https://b85f492946.imgdist.com/pub/bfra/v53z2ta0/tzn/6xj/skx/o7GD9_nzQGe-aPv5C8S7pA-removebg-preview.png"
+																		style="display: block; height: auto; border: 0; ;"
+																		width="130">
 																</div>
+
 															</td>
 														</tr>
 													</table>
@@ -182,7 +262,7 @@
 																	style="color:#0d1451;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:37px;line-height:120%;text-align:center;mso-line-height-alt:44.4px;">
 																	<p style="margin: 0; word-break: break-word;">
 																		<span><strong>ATUALIZAÇÃO DIÁRIA<br>₿ITCOIN
-																				🚀<br></strong></span>
+																				<br></strong></span>
 																	</p>
 																</div>
 															</td>
@@ -304,11 +384,11 @@
 															<td class="pad" style="width:100%;">
 																<div class="alignment" align="center"
 																	style="line-height:10px">
-																	<div style="max-width: 216.667px;"><img
-																			src="https://media3.giphy.com/media/WpZGFXIhPgohr6lLaG/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s"
-																			style="display: block; height: auto; border: 0; width: 100%;"
-																			width="216.667"></div>
+																	<img src="https://media3.giphy.com/media/WpZGFXIhPgohr6lLaG/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s"
+																		style="display: block; height: auto; border: 0; width: 100%;"
+																		width="216.667">
 																</div>
+
 															</td>
 														</tr>
 													</table>
@@ -320,6 +400,7 @@
 							</tr>
 						</tbody>
 					</table>
+
 
 					<!-- CONTAGEM REGRESSIVA PARA O HALVIN -->
 					<table class="row row-4" align="center" width="100%" border="0" cellpadding="0" cellspacing="0"
@@ -346,11 +427,64 @@
 															<td class="pad"
 																style="padding-left:30px;padding-right:30px;">
 																<div
-																	style="color:#0d1451;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:34px;line-height:120%;text-align:center;mso-line-height-alt:40.8px;">
+																	style="color:#0d1451;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:30px;line-height:120%;text-align:center;mso-line-height-alt:40.8px;">
 																	<p style="margin: 0; word-break: break-word;">
 																		CONTAGEM REGRESSIVA PARA O
 																		<strong>HALVING</strong>
 																	</p>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<!-- COUNTDOW -->
+					<table class="row row-4" align="center" width="100%" border="0" cellpadding="0" cellspacing="0"
+						role="presentation"
+						style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #de8419;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0"
+										cellspacing="0" role="presentation"
+										style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-position: center top; color: #000000; background-color: #ffffff; width: 650px; margin: 0 auto;"
+										width="650">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="100%"
+													style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+
+													<table class="paragraph_block block-2 flex-center" width="100%"
+														border="0" cellpadding="0" cellspacing="0" role="presentation"
+														style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad"
+																style="padding-left:30px;padding-right:30px;">
+																<div class="box flex-center-column">
+
+																	<div class="box-counters flex-center">
+																		<div class="box-counters-counter flex-center-column "
+																			id="days">
+																		</div>
+																		<div class="box-counters-counter flex-center-column"
+																			id="hours">
+																		</div>
+																		<div class="box-counters-counter flex-center-column"
+																			id="minutes">
+																		</div>
+																		<div class="box-counters-counter flex-center-column"
+																			id="seconds">
+																		</div>
+																	</div>
+
+
 																</div>
 															</td>
 														</tr>
@@ -386,10 +520,9 @@
 																<td class="pad" style="width:100%;">
 																	<div class="alignment" align="center"
 																		style="line-height:10px">
-																		<div style="max-width: 216.667px;"><img
-																				src="https://media3.giphy.com/media/4dWtJ2TZ1asp0LLmOh/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s"
-																				style="display: block; height: auto; border: 0; width: 100%;"
-																				width="216.667"></div>
+																		<img src="https://media3.giphy.com/media/4dWtJ2TZ1asp0LLmOh/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s"
+																			style="display: block; height: auto; border: 0; width: 100%;"
+																			width="216.667">
 																	</div>
 																</td>
 															</tr>
@@ -409,9 +542,9 @@
 																<td class="pad"
 																	style="padding-left:30px;padding-right:30px;">
 																	<div
-																		style="color:#0d1451;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:34px;line-height:120%;text-align:center;mso-line-height-alt:40.8px;">
+																		style="color:#0d1451;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:30px;line-height:120%;text-align:center;mso-line-height-alt:40.8px;">
 																		<p style="margin: 0; word-break: break-word;">
-																			APROXIMADAMENTE<strong>NO FINAL DE
+																			APROXIMADAMENTE<strong> NO FINAL DE
 																				ABRIL</strong></p>
 																	</div>
 																</td>
@@ -488,6 +621,46 @@
 			</tr>
 		</tbody>
 	</table><!-- End -->
+
+
+
+
+	<script>
+		function calculateTimeLeft() {
+			const difference = new Date('2024-04-20').getTime() - new Date().getTime();
+			let timeLeft = {};
+
+			if (difference > 0) {
+				timeLeft = {
+					days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+					hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+					minutes: Math.floor((difference / 1000 / 60) % 60),
+					seconds: Math.floor((difference / 1000) % 60),
+				};
+			}
+
+			return timeLeft;
+		}
+
+		function updateCountdown() {
+			const timeLeft = calculateTimeLeft();
+			document.getElementById('days').innerText = addLeadingZero(timeLeft.days) + ' dias';
+			document.getElementById('hours').innerText = addLeadingZero(timeLeft.hours) + ' horas';
+			document.getElementById('minutes').innerText = addLeadingZero(timeLeft.minutes) + ' minutos';
+			document.getElementById('seconds').innerText = addLeadingZero(timeLeft.seconds) + ' segundos';
+		}
+
+		function addLeadingZero(value) {
+			return value < 10 ? `0${value}` : value;
+		}
+
+		// Atualiza o contador a cada segundo
+		setInterval(updateCountdown, 1000);
+
+		// Chama updateCountdown uma vez para garantir que o contador seja exibido imediatamente
+		updateCountdown();
+	</script>
+
 </body>
 
 </html>

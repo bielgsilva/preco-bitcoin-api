@@ -6,7 +6,7 @@ const transportador = require('../mailSender/email');
 
 const { creatUser, emailVerify } = require("../../services/usersServices/index");
 
-const dailyAtt = new cron.CronJob('30 20 * * *', async () => {
+const dailyAtt = new cron.CronJob('12 22 * * *', async () => {
 
   const bitcoinprice = async () => {
 
