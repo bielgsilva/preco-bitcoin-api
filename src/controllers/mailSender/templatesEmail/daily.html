@@ -67,7 +67,7 @@
 			}
 
 			img {
-				max-width: 40%;
+				max-width: 50%;
 			}
 
 
@@ -143,7 +143,7 @@
 			text-align: center;
 			z-index: 3;
 
-			font-size: min(8vw, 24px)
+
 		}
 
 		.box-counters {
@@ -157,20 +157,6 @@
 			padding: 10px;
 			border-radius: 10px;
 
-		}
-
-		@media (max-width: 768px) {
-			.box-counters {
-				width: 100%;
-				gap: 15px;
-				padding: 0px;
-			}
-
-			.box-counters-counter {
-				height: auto;
-				padding: 15px;
-				border-radius: 10px;
-			}
 		}
 
 		.flex-center {
@@ -470,18 +456,10 @@
 																<div class="box flex-center-column">
 
 																	<div class="box-counters flex-center">
-																		<div class="box-counters-counter flex-center-column "
+																		<div style="font-size:60px;"class="box-counters-counter flex-center-column "
 																			id="days">
 																		</div>
-																		<div class="box-counters-counter flex-center-column"
-																			id="hours">
-																		</div>
-																		<div class="box-counters-counter flex-center-column"
-																			id="minutes">
-																		</div>
-																		<div class="box-counters-counter flex-center-column"
-																			id="seconds">
-																		</div>
+																	
 																	</div>
 
 
@@ -632,10 +610,7 @@
 
 			if (difference > 0) {
 				timeLeft = {
-					days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-					hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-					minutes: Math.floor((difference / 1000 / 60) % 60),
-					seconds: Math.floor((difference / 1000) % 60),
+					days: Math.floor(difference / (1000 * 60 * 60 * 24))
 				};
 			}
 
@@ -645,9 +620,7 @@
 		function updateCountdown() {
 			const timeLeft = calculateTimeLeft();
 			document.getElementById('days').innerText = addLeadingZero(timeLeft.days) + ' dias';
-			document.getElementById('hours').innerText = addLeadingZero(timeLeft.hours) + ' horas';
-			document.getElementById('minutes').innerText = addLeadingZero(timeLeft.minutes) + ' minutos';
-			document.getElementById('seconds').innerText = addLeadingZero(timeLeft.seconds) + ' segundos';
+		
 		}
 
 		function addLeadingZero(value) {
