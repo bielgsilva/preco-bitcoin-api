@@ -96,11 +96,11 @@
 
 		<div>
 			<h2>VALOR MÉDIO:</h2>
-			<h1 id="precobtc">{{precobtc}}</h1>
+			<h1 id="precobtc"></h1>
 			<img
 				src="https://media3.giphy.com/media/WpZGFXIhPgohr6lLaG/giphy.gif?cid=20eb4e9dh46h3dp2hd07983y4ctf7sjxfza8drluuz3q0ori&ep=v1_stickers_search&rid=giphy.gif&ct=s">
 			<h4>Bitcoin/Dólar Americano</h4>
-			<h5 id="data">{{data}}</h5>
+			<h5 id="data"></h5>
 		</div>
 
 		<div>
@@ -163,18 +163,19 @@
 		}
 
 		function updateValues() {
+			const btcAPI = {
+				data: "{{data}}",
+				precobtc: "{{precobtc}}"
+			};
 
-			const data = new Date("{{data}}");
-			const precobtc = new Date("{{precobtc}}");
-
-			const formattedPrice = formatPrice(precobtc);
-			const formattedDate = formatDate(data);
+			const formattedPrice = formatPrice(btcAPI.precobtc);
+			const formattedDate = formatDate(btcAPI.data);
 
 			const precobtcElement = document.getElementById('precobtc');
 			const dataElement = document.getElementById('data');
 
-			precobtcElement.textContent = formattedPrice;
-			dataElement.textContent = formattedDate;
+			precobtcElement.innerText = formattedPrice;
+			dataElement.innerText = formattedDate;
 		}
 
 		// Chama a função para atualizar os valores
