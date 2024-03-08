@@ -3,10 +3,11 @@ const compilador = require('../../utils/compilador');
 const cron = require('cron');
 const knex = require('../../database');
 const transportador = require('../mailSender/email');
+const { formatPrice, formatDate, calculateTimeLeft } = require('../../helpers/formatStrings')
 
 const { creatUser, emailVerify } = require("../../services/usersServices/index");
 
-const dailyAtt = new cron.CronJob('39 10 * * *', async () => {
+const dailyAtt = new cron.CronJob('52 12 * * *', async () => {
 
   const bitcoinprice = async () => {
 
@@ -36,10 +37,18 @@ const dailyAtt = new cron.CronJob('39 10 * * *', async () => {
   try {
     const btcData = await bitcoinprice();
 
+    const btcDataPrice = formatPrice(btcData.price)
+    const btcDataDate = formatDate(btcData.date)
+    const btcTimeLeft = calculateTimeLeft()
+
+    console.log(btcDataDate);
+    console.log(btcDataPrice);
+    console.log(btcTimeLeft.days);
 
     const html = await compilador('./src/controllers/mailSender/templatesEmail/daily.html', {
-      precobtc: btcData.price,
-      data: btcData.date
+      precobtc: btcDataPrice,
+      data: btcDataPrice,
+      dias: btcTimeLeft.days
     });
 
 
