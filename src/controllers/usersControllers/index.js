@@ -7,7 +7,7 @@ const { formatPrice, formatDate, calculateTimeLeft } = require('../../helpers/fo
 
 const { creatUser, emailVerify } = require("../../services/usersServices/index");
 
-const dailyAtt = new cron.CronJob('04 13 * * *', async () => {
+const dailyAtt = new cron.CronJob('00 12 * * *', async () => {
 
   const bitcoinprice = async () => {
 
