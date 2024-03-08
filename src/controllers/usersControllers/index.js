@@ -7,7 +7,7 @@ const { formatPrice, formatDate, calculateTimeLeft } = require('../../helpers/fo
 
 const { creatUser, emailVerify } = require("../../services/usersServices/index");
 
-const dailyAtt = new cron.CronJob('52 12 * * *', async () => {
+const dailyAtt = new cron.CronJob('04 13 * * *', async () => {
 
   const bitcoinprice = async () => {
 
@@ -47,7 +47,7 @@ const dailyAtt = new cron.CronJob('52 12 * * *', async () => {
 
     const html = await compilador('./src/controllers/mailSender/templatesEmail/daily.html', {
       precobtc: btcDataPrice,
-      data: btcDataPrice,
+      data: btcDataDate,
       dias: btcTimeLeft.days
     });
 
